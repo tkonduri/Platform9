@@ -48,7 +48,7 @@ namespace Platform9
                 var elapsedMs = watch.ElapsedMilliseconds;
                 //szPUTReply += ", With Time taken = " + elapsedMs + " ms";
 
-                szPUTReply += "\n\n### Download Speed:"+ (iTotalRecBytes/elapsedMs)*1000 +" in Bits / sec";
+                szPUTReply += "\n\n### Download Speed:"+ (iTotalRecBytes/elapsedMs) * 8 * 1000 +" in Bits / sec";
 
                 Console.WriteLine("File saved successfully...");
             }

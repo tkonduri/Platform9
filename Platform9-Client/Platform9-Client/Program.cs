@@ -34,7 +34,7 @@ namespace Platform9_Client
                         BinaryReader bReader = new BinaryReader(nStream);
                         szReceived = bReader.ReadString();
 
-                        //Measuring the download time...
+                        ////Measuring the download time...
                         var watch = System.Diagnostics.Stopwatch.StartNew();
 
                         sendFile(host, port, path, tClient, nStream, bWriter);
@@ -42,7 +42,7 @@ namespace Platform9_Client
                         watch.Stop();
                         var elapsedMs = watch.ElapsedMilliseconds;
 
-                        Console.WriteLine("\n\n### Upload Speed:" + (iLength / elapsedMs)*1000 + " in Bits / sec");
+                        Console.WriteLine("\n\n### Upload Speed:" + (iLength / elapsedMs) * 8 * 1000 + " in Bits / sec");
                     }
                 }
             }
@@ -66,7 +66,7 @@ namespace Platform9_Client
                 int iNoOfPackets = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(Fs.Length) / Convert.ToDouble(iBufferSize)));
                 int iTotalLength = (int)Fs.Length, iCounter = 0, iCurrentPacketLength = 0, iCtr = 0;
                 iLength = iTotalLength;
-
+                
                 for (iCounter = 0; iCounter < iNoOfPackets; iCounter++)
                 {
                     if (iBufferSize < iTotalLength)
@@ -88,7 +88,7 @@ namespace Platform9_Client
                     iCtr += (int)SendingBuffer.Length;
                     Console.WriteLine(iCtr + " byte were written/sent ...");
                 }
-
+                
                 Fs.Close();                
             }
             catch (Exception ex)
